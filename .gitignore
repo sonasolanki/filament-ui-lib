@@ -36,7 +36,6 @@ dist/*
 build
 
 # Other
-docs-build
 dist
 .out
 www
