@@ -12,7 +12,7 @@ export default {
   }
 };
 
-const Template = (args) => `<template-component></template-component>`;
+const Template = (args) => <template-component></template-component>;
 
 export const Default = Template.bind({});
 Default.storyName = 'Default';

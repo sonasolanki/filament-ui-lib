@@ -12,7 +12,7 @@ export default {
   }
 };
 
-const Template = (args) => `<f-rating></f-rating>`;
+const Template = (args) => <f-rating></f-rating>;
 
 export const Default = Template.bind({});
 Default.storyName = 'Default';
