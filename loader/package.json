@@ -1,5 +1,5 @@
 {
-  "name": "awlds-ui-lib-scratch-loader",
+  "name": "awlds-ui-lib-loader",
   "typings": "./index.d.ts",
   "module": "./index.js",
   "main": "./index.cjs.js",
