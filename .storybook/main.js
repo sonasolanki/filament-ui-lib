@@ -3,7 +3,8 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook/addon-storyshots"
+    "@storybook/addon-storyshots",
+    "@ljcl/storybook-addon-cssprops"
   ],
   babelDefault: (config) => {
     return {

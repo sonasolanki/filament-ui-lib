@@ -1,0 +1,164 @@
+:root {
+    --f-text-input-label-font-size: 12px; //TODO: set font size
+    
+    --f-text-input-background-color: var(--neutral-white);
+    --f-text-input-font-color: var(--neutral-black);
+    --f-text-input-letter-spacing: 0.15px;
+    --f-text-input-line-height: 1;
+    --f-text-input-height-standard: 56px;
+
+    --f-text-input-border-thickness: 1px;
+    --f-text-input-border-style: solid;
+    --f-text-input-border-color: var(--neutral-dove-gray);
+
+    --f-text-input-border: var(--f-text-input-border-thickness) var(--f-text-input-border-style);
+
+    --f-text-input-placeholder-color: var(--neutral-dove-gray);
+    --f-text-input-placeholder-font-style: normal;
+
+    --f-text-input-hover-background-color: var(--neutral-white);
+    --f-text-input-hover-border-color: var(--accent-navy-blue);
+    --f-text-input-hover-placeholder-color: var(--neutral-black);
+
+    --f-text-input-focus-background-color: var(--neutral-white);
+    --f-text-input-focus-border-color: var(--accent-navy-blue);
+    --f-text-input-focus-placeholder-color: var(--neutral-black);
+
+    --f-text-input-border-error-thickness: 3px;
+    --f-text-input-border-error-color: var(--error-tbd);
+
+    --f-text-input-helper-text-font-size: 12px; //TODO: set font size
+
+    --f-text-input-disabled-background-color: var(--neutral-gallery);
+    --f-text-input-disabled-border-color: transparent;
+    --f-text-input-disabled-font-color: var(--neutral-steel);
+}
+
+//TODO: motion for border-color and background-color like this: 0.8s cubic-bezier(.65,0,.35,1)
+//TODO: spacing on transforms aren't aligned with spacing
+//TODO: need to override styles for some input types (search, number, file etc)
+//TODO: potential icon in input (search, ssn, lock (securtiy))
+
+f-text-input {
+    .f-text-input {
+        display: flex;
+        flex-flow: column-reverse;
+
+        input[type='text'],
+        input[type='password'],
+        input[type='number'],
+        input[type='file'],
+        input[type='search'],
+        input[type='tel'],
+        input[type='email'],
+        input[type='date'],
+        input[type='month'],
+        input[type='week'],
+        input[type='datetime'],
+        input[type='time'],
+        input[type='datetime-local'],
+        input[type='url'] {
+            font-size: var(--base-font-size);
+            border: var(--f-text-input-border);
+            border-color: var(--neutral-dove-gray);
+            border-radius: radius(none);
+            padding: 24px var(--spacing-m) 16px var(--spacing-l);
+            cursor: text;
+            outline: none;
+            background-color: var(--f-text-input-background-color);
+            color: var(--f-text-input-font-color);
+            height: var(--f-text-input-height-standard);
+            width: 100%;
+            //remove numbers arrows
+            -moz-appearance: textfield;
+            &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            &:placeholder-shown + label {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                transform-origin: left bottom;
+                transform: translate(16px, 42px) scale(1.5);
+            }
+
+            &::placeholder {
+                opacity: 0;
+                transition: inherit;
+            }
+
+            &:focus, &:hover {
+                border-color: var(--f-text-input-focus-border-color);
+                background-color: var(--f-text-input-focus-background-color);
+
+                &::placeholder {
+                    opacity: 0;
+                }
+            }
+
+            &:not(:placeholder-shown) + label, &:focus + label {    
+                transform: translate(16px, 24px) scale(1);
+                cursor: pointer;
+            }
+
+            &:disabled, [disabled] {
+                background-color: var(--f-text-input-disabled-background-color);
+                border-color: var(--f-text-input-disabled-border-color);
+                color: var(--f-text-input-disabled-font-color);
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+
+            &.has-error {
+                border: var(--f-text-input-border-error-thickness) var(--f-text-input-border-style) var(--f-text-input-border-error-color);
+                &:not(:placeholder-shown) + label, &:focus + label {    
+                    transform: translate(19px, 26px) scale(1);
+                }
+            }
+        }
+
+        label {
+            font-size: var(--f-text-input-label-font-size);
+            text-transform: lowercase;
+
+            &:first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        .helper-text, .error-container {
+            order: -1;
+            font-size: var(--f-text-input-helper-text-font-size);
+            margin-top: var(--spacing-m);
+            display: flex;
+            align-items: center;
+            text-transform: lowercase;
+            display: inline-block;
+    
+            &:first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        .error-container {
+            color: var(--f-text-input-border-error-color);
+
+            span {
+                margin-bottom: var(--spacing-xs);
+                text-transform: lowercase;
+                display: inline-block;
+        
+                &:first-letter {
+                    text-transform: uppercase;
+                }
+            }
+
+            f-icon {
+                --f-icon-color: var(--f-text-input-border-error-color);
+                margin-right: var(--spacing-m);
+            }
+        }   
+    }
+}

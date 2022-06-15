@@ -3,7 +3,7 @@ import { Component, h, Prop } from '@stencil/core';
 @Component({
   tag: 'template-component',
   styleUrl: 'template-component.scss',
-  shadow: true
+  shadow: false
 })
 export class TemplateComponent {
 

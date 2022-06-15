@@ -20,6 +20,11 @@ export const config: Config = {
     },
   ],
   plugins: [
-    sass()
+    sass({
+      injectGlobalPaths: [
+        'src/components/global/styles/index.scss',
+        'src/components/global/styles/helper-reference.scss',
+    ],
+    }),
   ]
 };
