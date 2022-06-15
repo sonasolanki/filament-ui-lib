@@ -15,8 +15,7 @@
     "url": "https://github.com/AlightEngineering/awlds-ui-lib.git"
   },
   "files": [
-    "dist/",
-    "loader/"
+    "dist/"
   ],
   "jest": {
     "modulePathIgnorePatterns": [
