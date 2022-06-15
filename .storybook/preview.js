@@ -1,5 +1,5 @@
 import { renderVdom, registerHost, getHostRef } from '@stencil/core/internal/client';
-import { defineCustomElements } from '../loader';
+import { defineCustomElements } from '../dist/esm/loader';
 
 defineCustomElements();
 
